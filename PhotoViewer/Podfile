@@ -1,0 +1,15 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'PhotoViewer' do
+	
+	pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+	pod 'IQKeyboardManagerSwift'
+
+	pod 'Alamofire'
+	pod 'AlamofireObjectMapper'
+	pod 'AlamofireImage'
+
+	pod 'DZNEmptyDataSet'
+
+end
