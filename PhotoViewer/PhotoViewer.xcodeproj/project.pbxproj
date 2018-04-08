@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		49E16C1F20796FE100E76C41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C1E20796FE100E76C41 /* AppDelegate.swift */; };
-		49E16C2120796FE100E76C41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C2020796FE100E76C41 /* ViewController.swift */; };
 		49E16C2420796FE100E76C41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E16C2220796FE100E76C41 /* Main.storyboard */; };
 		49E16C2620796FE100E76C41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E16C2520796FE100E76C41 /* Assets.xcassets */; };
 		49E16C2920796FE100E76C41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E16C2720796FE100E76C41 /* LaunchScreen.storyboard */; };
 		49E16C3420796FE200E76C41 /* PhotoViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C3320796FE200E76C41 /* PhotoViewerTests.swift */; };
 		49E16C3F20796FE200E76C41 /* PhotoViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C3E20796FE200E76C41 /* PhotoViewerUITests.swift */; };
+		49E16C552079898B00E76C41 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C542079898B00E76C41 /* PhotoCollectionViewController.swift */; };
+		49E16C5720798A4600E76C41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C5620798A4600E76C41 /* Constants.swift */; };
+		49E16C5920798AAD00E76C41 /* UpsplashFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C5820798AAD00E76C41 /* UpsplashFeedController.swift */; };
+		49E16C5B20798B1200E76C41 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C5A20798B1200E76C41 /* Photo.swift */; };
+		49E16C5D2079904C00E76C41 /* GridPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C5C2079904C00E76C41 /* GridPhotoCollectionViewCell.swift */; };
 		5D50D6428E36CA668F7104C6 /* Pods_PhotoViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875AE61F65674D2B85F72DF1 /* Pods_PhotoViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +41,6 @@
 /* Begin PBXFileReference section */
 		49E16C1B20796FE100E76C41 /* PhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E16C1E20796FE100E76C41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49E16C2020796FE100E76C41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49E16C2320796FE100E76C41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49E16C2520796FE100E76C41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49E16C2820796FE100E76C41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +51,11 @@
 		49E16C3A20796FE200E76C41 /* PhotoViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E16C3E20796FE200E76C41 /* PhotoViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerUITests.swift; sourceTree = "<group>"; };
 		49E16C4020796FE200E76C41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49E16C542079898B00E76C41 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		49E16C5620798A4600E76C41 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		49E16C5820798AAD00E76C41 /* UpsplashFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpsplashFeedController.swift; sourceTree = "<group>"; };
+		49E16C5A20798B1200E76C41 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		49E16C5C2079904C00E76C41 /* GridPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		875AE61F65674D2B85F72DF1 /* Pods_PhotoViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A226C03DE86BB82DE5904054 /* Pods-PhotoViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoViewer/Pods-PhotoViewer.debug.xcconfig"; sourceTree = "<group>"; };
 		A898AC2C08A6EE450A6C68B2 /* Pods-PhotoViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoViewer/Pods-PhotoViewer.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,11 +113,12 @@
 			isa = PBXGroup;
 			children = (
 				49E16C1E20796FE100E76C41 /* AppDelegate.swift */,
-				49E16C2020796FE100E76C41 /* ViewController.swift */,
-				49E16C2220796FE100E76C41 /* Main.storyboard */,
-				49E16C2520796FE100E76C41 /* Assets.xcassets */,
-				49E16C2720796FE100E76C41 /* LaunchScreen.storyboard */,
-				49E16C2A20796FE100E76C41 /* Info.plist */,
+				49E16C4C2079762700E76C41 /* Controller */,
+				49E16C4D2079764400E76C41 /* View */,
+				49E16C4E2079765900E76C41 /* Model */,
+				49E16C4F2079766500E76C41 /* Communication */,
+				49E16C502079767500E76C41 /* Utilities */,
+				49E16C512079767F00E76C41 /* Other */,
 			);
 			path = PhotoViewer;
 			sourceTree = "<group>";
@@ -130,6 +139,57 @@
 				49E16C4020796FE200E76C41 /* Info.plist */,
 			);
 			path = PhotoViewerUITests;
+			sourceTree = "<group>";
+		};
+		49E16C4C2079762700E76C41 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49E16C542079898B00E76C41 /* PhotoCollectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49E16C4D2079764400E76C41 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49E16C2220796FE100E76C41 /* Main.storyboard */,
+				49E16C5C2079904C00E76C41 /* GridPhotoCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49E16C4E2079765900E76C41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49E16C5A20798B1200E76C41 /* Photo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49E16C4F2079766500E76C41 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				49E16C5620798A4600E76C41 /* Constants.swift */,
+				49E16C5820798AAD00E76C41 /* UpsplashFeedController.swift */,
+			);
+			path = Communication;
+			sourceTree = "<group>";
+		};
+		49E16C502079767500E76C41 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		49E16C512079767F00E76C41 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				49E16C2A20796FE100E76C41 /* Info.plist */,
+				49E16C2520796FE100E76C41 /* Assets.xcassets */,
+				49E16C2720796FE100E76C41 /* LaunchScreen.storyboard */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		67599334C3A2670EA5FFA41E /* Frameworks */ = {
@@ -336,8 +396,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E16C2120796FE100E76C41 /* ViewController.swift in Sources */,
+				49E16C552079898B00E76C41 /* PhotoCollectionViewController.swift in Sources */,
 				49E16C1F20796FE100E76C41 /* AppDelegate.swift in Sources */,
+				49E16C5720798A4600E76C41 /* Constants.swift in Sources */,
+				49E16C5920798AAD00E76C41 /* UpsplashFeedController.swift in Sources */,
+				49E16C5B20798B1200E76C41 /* Photo.swift in Sources */,
+				49E16C5D2079904C00E76C41 /* GridPhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +570,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39A39NNR25;
-				INFOPLIST_FILE = PhotoViewer/Info.plist;
+				INFOPLIST_FILE = PhotoViewer/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gordy.illya.PhotoViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -522,7 +586,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39A39NNR25;
-				INFOPLIST_FILE = PhotoViewer/Info.plist;
+				INFOPLIST_FILE = PhotoViewer/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gordy.illya.PhotoViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
