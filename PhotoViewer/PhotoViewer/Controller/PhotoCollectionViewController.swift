@@ -63,7 +63,10 @@ class PhotoCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GridPhotoCollectionViewCell
         
-        cell.titleLabel.text = UpsplashFeedController.currentPhotos[indexPath.item].title
+        cell.backgroundColor = UIColor.blue
+        
+        cell.titleLabel.textColor = UIColor.white
+        cell.titleLabel.text = UpsplashFeedController.currentPhotos[indexPath.item].img_description
         
         return cell
     }

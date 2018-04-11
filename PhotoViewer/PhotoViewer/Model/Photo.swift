@@ -6,18 +6,33 @@
 //  Copyright © 2018 Illya Gordiyenko. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import ObjectMapper
 
-class Photo: NSObject {
+class Photo: NSObject, Mappable {
     
     var id: String?
-    var title: String?
+    var img_description: String?
     var width: Int?
     var height: Int?
+    var img_url: String?
     
-    init(id: String, title: String, width: Int, height: Int) {
+    required init?(map: Map){
+        
+    }
+    
+    func mapping(map: Map) {
+
+        id <- map["id"]
+        img_description <- map["description"]
+        width <- map["width"]
+        height <- map["height"]
+        img_url <- map["urls.regular"]
+    }
+    
+    init(id: String, img_description: String, width: Int, height: Int) {
         self.id   = id
-        self.title = title
+        self.img_description = img_description
         self.width  = width
         self.height  = height
     }

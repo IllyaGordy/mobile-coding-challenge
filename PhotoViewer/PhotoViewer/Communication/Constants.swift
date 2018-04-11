@@ -8,4 +8,4 @@
 
 import Foundation
 
-let host = "test"
+let host = "https://api.unsplash.com"
