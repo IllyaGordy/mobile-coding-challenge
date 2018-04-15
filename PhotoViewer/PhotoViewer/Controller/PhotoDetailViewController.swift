@@ -11,14 +11,14 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
 
     var currentPhoto: Photo?
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var mainImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("Current Photo: \(String(describing: self.currentPhoto?.img_description))");
-        
+                
         // If Image then Set it, otherwise pull from the backend and set as the current
         if currentPhoto?.mainImage != nil {
             
@@ -43,6 +43,10 @@ class PhotoDetailViewController: UIViewController {
             print("Image URL is empty -> do nothing")
             mainImageView.image = nil
         }
+        
+        // Set up detail
+        idLabel.text = currentPhoto?.id
+        usernameLabel.text = currentPhoto?.username
 
     }
 

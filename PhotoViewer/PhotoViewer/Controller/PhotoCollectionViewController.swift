@@ -89,8 +89,6 @@ class PhotoCollectionViewController: UICollectionViewController {
                 })
             }
             
-            
-            
         }else {
             print("Image URL is empty -> do nothing")
             cell.imageView.image = nil
@@ -99,6 +97,21 @@ class PhotoCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if (indexPath.row == UpsplashFeedController.currentPhotos.count - 1) {
+            
+            UpsplashFeedController.pullFeed(success: { (success) in
+                self.collectionView?.reloadData()
+                
+            }) { (failedToPullFeed) in
+                print("FailedToPullFeed: \(failedToPullFeed)")
+            }
+        }
+        
+    }
+    
+    // Segue Prep
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.photoToPass = UpsplashFeedController.currentPhotos[indexPath.row]
@@ -113,37 +126,6 @@ class PhotoCollectionViewController: UICollectionViewController {
             }
         }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
 
 }
 
