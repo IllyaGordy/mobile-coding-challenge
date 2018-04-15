@@ -14,13 +14,13 @@ fileprivate let itemsPerRow: CGFloat = 3
 
 class PhotoCollectionViewController: UICollectionViewController {
 
+    var photoToPass:Photo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UpsplashFeedController.pullFeed(success: { (success) in
-            print("All good")
-            
-            // TODO: refresh collection view
+            self.collectionView?.reloadData()
             
         }) { (failedToPullFeed) in
             print("FailedToPullFeed: \(failedToPullFeed)")
@@ -68,7 +68,50 @@ class PhotoCollectionViewController: UICollectionViewController {
         cell.titleLabel.textColor = UIColor.white
         cell.titleLabel.text = UpsplashFeedController.currentPhotos[indexPath.item].img_description
         
+        // If Image then Set it, otherwise pull from the backend and set as the current
+        if UpsplashFeedController.currentPhotos[indexPath.row].mainImage != nil {
+            
+            cell.imageView.image = UpsplashFeedController.currentPhotos[indexPath.row].mainImage
+            
+        }else if UpsplashFeedController.currentPhotos[indexPath.row].img_url != nil {
+            
+            if (UpsplashFeedController.currentPhotos[indexPath.row].img_url)! == "self" {
+                UpsplashFeedController.currentPhotos[indexPath.row].img_url = nil
+            }else {
+                UpsplashFeedController.pullImage(with: (UpsplashFeedController.currentPhotos[indexPath.row].img_url)!, success: { (returnedImage) in
+                    
+                    cell.imageView.image = returnedImage
+                    
+                    UpsplashFeedController.currentPhotos[indexPath.row].mainImage = returnedImage
+                    
+                }, failed: { (errorPullingImage) in
+                    print("errorPullingImage: \(errorPullingImage)")
+                })
+            }
+            
+            
+            
+        }else {
+            print("Image URL is empty -> do nothing")
+            cell.imageView.image = nil
+        }
+        
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.photoToPass = UpsplashFeedController.currentPhotos[indexPath.row]
+        performSegue(withIdentifier: "showPhotoDetailSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showPhotoDetailSegue" {
+            if let photoDetailVC = segue.destination as? PhotoDetailViewController {
+                photoDetailVC.currentPhoto = self.photoToPass //?.copy() as? Photo
+            }
+        }
     }
 
     // MARK: UICollectionViewDelegate

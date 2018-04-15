@@ -41,11 +41,11 @@ class UpsplashFeedController: NSObject {
                         failed(errorToPass)
                         return
                     }
-                    let customers:[Photo] = Mapper<Photo>().mapArray(JSONArray: responseJSON)
+                    let photos:[Photo] = Mapper<Photo>().mapArray(JSONArray: responseJSON)
                     
-                    debugPrint("Response: \(customers)")
+                    self.currentPhotos = photos
                     
-                    
+                    success(true)
                     
                 }else {
                     
@@ -53,25 +53,24 @@ class UpsplashFeedController: NSObject {
                     let errorToPass: NSError = NSError.init(domain: errorMessage, code: 0, userInfo: nil)
                     failed(errorToPass)
                 }
-                
             }
+        }
+    }
+    
+    
+    class func pullImage(with stringUrl:String, success:@escaping ((UIImage) -> Void), failed:@escaping ((NSError) -> Void)) {
+        
+        Alamofire.request(stringUrl, method: .get, parameters: nil).responseImage { (responseImage) in
             
+            if let image = responseImage.result.value {
+                success(image)
+            }else {
+                let errorMessage = "Pulling Image Failed"
+                let errorToPass: NSError = NSError.init(domain: errorMessage, code: 1, userInfo: nil)
+                failed(errorToPass)
+            }
         }
         
-        
-        
-        print("PullFeed")
-        
-        let firstPhoto = Photo.init(id: "1", img_description: "First", width: 120, height: 100)
-        let secondPhoto = Photo.init(id: "2", img_description: "Second", width: 120, height: 100)
-        let thirdPhoto = Photo.init(id: "3", img_description: "Third", width: 120, height: 100)
-        let fourthPhoto = Photo.init(id: "4", img_description: "First", width: 120, height: 100)
-        let fifthPhoto = Photo.init(id: "5", img_description: "Second", width: 120, height: 100)
-        let sixthPhoto = Photo.init(id: "6", img_description: "Third", width: 120, height: 100)
-        
-        self.currentPhotos = [firstPhoto, secondPhoto, thirdPhoto, fourthPhoto, fifthPhoto, sixthPhoto]
-        
-        success(true)
     }
 
 }

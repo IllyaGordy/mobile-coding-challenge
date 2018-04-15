@@ -17,6 +17,9 @@ class Photo: NSObject, Mappable {
     var height: Int?
     var img_url: String?
     
+    // Local Variables
+    var mainImage: UIImage?
+    
     required init?(map: Map){
         
     }

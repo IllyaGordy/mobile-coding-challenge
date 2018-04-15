@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kv6-eM-gFa">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kv6-eM-gFa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kwT-ip-Z2G">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -32,7 +33,7 @@
             <objects>
                 <collectionViewController id="B8w-Tx-QM0" customClass="PhotoCollectionViewController" customModule="PhotoViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eWc-V7-0x8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UsM-LW-9RF">
@@ -43,7 +44,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoIdentified" id="hQT-qg-N2M" customClass="GridPhotoCollectionViewCell" customModule="PhotoViewer" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="87.666666666666671" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -80,10 +81,45 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="hA4-7g-YYd"/>
+                    <connections>
+                        <segue destination="idA-gC-ce7" kind="show" identifier="showPhotoDetailSegue" id="RGZ-UG-xNo"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8UF-fN-pGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="528.79999999999995" y="29.23538230884558"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="VhH-hF-hdl">
+            <objects>
+                <viewController id="idA-gC-ce7" customClass="PhotoDetailViewController" customModule="PhotoViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gER-8V-j2j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-DZ-rDD">
+                                <rect key="frame" x="0.0" y="88" width="375" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="gIj-wY-1z4"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rc2-DZ-rDD" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" id="7Hw-Md-c0e"/>
+                            <constraint firstItem="x60-UY-2lv" firstAttribute="trailing" secondItem="Rc2-DZ-rDD" secondAttribute="trailing" id="ZL6-aa-ylJ"/>
+                            <constraint firstItem="Rc2-DZ-rDD" firstAttribute="top" secondItem="x60-UY-2lv" secondAttribute="top" id="nkK-yZ-9OM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x60-UY-2lv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nit-ce-tlb"/>
+                    <connections>
+                        <outlet property="mainImageView" destination="Rc2-DZ-rDD" id="YwR-xd-Dg7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pFQ-vN-Up2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1391" y="29"/>
         </scene>
     </scenes>
 </document>
