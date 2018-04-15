@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-231" y="31"/>
         </scene>
-        <!--Photo Collection View Controller-->
+        <!--Upsplash Feed-->
         <scene sceneID="kNa-T0-l4C">
             <objects>
-                <collectionViewController id="B8w-Tx-QM0" customClass="PhotoCollectionViewController" customModule="PhotoViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Upsplash Feed" id="B8w-Tx-QM0" customClass="PhotoCollectionViewController" customModule="PhotoViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="eWc-V7-0x8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,16 +80,16 @@
                             <outlet property="delegate" destination="B8w-Tx-QM0" id="AXq-ZC-x4R"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="hA4-7g-YYd"/>
+                    <navigationItem key="navigationItem" title="Upsplash Feed" id="hA4-7g-YYd"/>
                     <connections>
-                        <segue destination="idA-gC-ce7" kind="show" identifier="showPhotoDetailSegue" id="RGZ-UG-xNo"/>
+                        <segue destination="idA-gC-ce7" kind="custom" identifier="showPhotoDetailSegue" customClass="CustomPhotoSegue" customModule="PhotoViewer" customModuleProvider="target" id="lh7-BU-uc8"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8UF-fN-pGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="528.79999999999995" y="29.23538230884558"/>
         </scene>
-        <!--Title-->
+        <!--Photo Detail View Controller-->
         <scene sceneID="VhH-hF-hdl">
             <objects>
                 <viewController id="idA-gC-ce7" customClass="PhotoDetailViewController" customModule="PhotoViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,59 +98,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-DZ-rDD">
-                                <rect key="frame" x="0.0" y="88" width="375" height="400"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="gIj-wY-1z4"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7Q-KG-tUe">
-                                <rect key="frame" x="16" y="496" width="21" height="21"/>
+                                <rect key="frame" x="16" y="712" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="GOK-qs-rg7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdh-Sv-kXE">
-                                <rect key="frame" x="304.33333333333331" y="496" width="54.666666666666686" height="20.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdh-Sv-kXE">
+                                <rect key="frame" x="132" y="712" width="226.66666666666663" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKj-Dg-c5D">
-                                <rect key="frame" x="16" y="525" width="83.333333333333329" height="21"/>
+                                <rect key="frame" x="16" y="741" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ZAK-bv-jzo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAL-jv-TIF">
-                                <rect key="frame" x="241.99999999999997" y="525" width="116.66666666666666" height="20.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAL-jv-TIF">
+                                <rect key="frame" x="132" y="741" width="226.66666666666663" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3id-gX-M9W">
+                                <rect key="frame" x="16" y="60" width="22" height="22"/>
+                                <state key="normal" image="backIcon"/>
+                                <connections>
+                                    <segue destination="6Bw-LP-YLc" kind="unwind" customClass="UnwindCustomPhotoSegue" customModule="PhotoViewer" customModuleProvider="target" unwindAction="unwindToCollectionViewWithSegue:" id="fJn-nT-xR4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rc2-DZ-rDD" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" id="7Hw-Md-c0e"/>
-                            <constraint firstItem="x60-UY-2lv" firstAttribute="trailing" secondItem="kAL-jv-TIF" secondAttribute="trailing" constant="16" id="DaA-ey-qFe"/>
-                            <constraint firstItem="kAL-jv-TIF" firstAttribute="top" secondItem="Hdh-Sv-kXE" secondAttribute="bottom" constant="8" id="M2Y-Yx-8YR"/>
-                            <constraint firstItem="Hdh-Sv-kXE" firstAttribute="top" secondItem="Rc2-DZ-rDD" secondAttribute="bottom" constant="8" id="UdR-wA-djm"/>
-                            <constraint firstItem="x60-UY-2lv" firstAttribute="trailing" secondItem="Hdh-Sv-kXE" secondAttribute="trailing" constant="16" id="Vnt-cL-Fgn"/>
-                            <constraint firstItem="lKj-Dg-c5D" firstAttribute="top" secondItem="J7Q-KG-tUe" secondAttribute="bottom" constant="8" id="YkP-Xc-mc9"/>
-                            <constraint firstItem="x60-UY-2lv" firstAttribute="trailing" secondItem="Rc2-DZ-rDD" secondAttribute="trailing" id="ZL6-aa-ylJ"/>
-                            <constraint firstItem="J7Q-KG-tUe" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" constant="16" id="bg9-WF-UWs"/>
-                            <constraint firstItem="lKj-Dg-c5D" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" constant="16" id="njt-J0-7ye"/>
-                            <constraint firstItem="Rc2-DZ-rDD" firstAttribute="top" secondItem="x60-UY-2lv" secondAttribute="top" id="nkK-yZ-9OM"/>
-                            <constraint firstItem="J7Q-KG-tUe" firstAttribute="top" secondItem="Rc2-DZ-rDD" secondAttribute="bottom" constant="8" id="zUR-UR-Znp"/>
+                            <constraint firstItem="x60-UY-2lv" firstAttribute="bottom" secondItem="lKj-Dg-c5D" secondAttribute="bottom" constant="16" id="0kx-CB-wEt"/>
+                            <constraint firstItem="Hdh-Sv-kXE" firstAttribute="leading" secondItem="J7Q-KG-tUe" secondAttribute="trailing" constant="16" id="D5P-di-1I3"/>
+                            <constraint firstItem="lKj-Dg-c5D" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" constant="16" id="H0W-Xq-ICT"/>
+                            <constraint firstItem="J7Q-KG-tUe" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" constant="16" id="Hq4-cx-FXe"/>
+                            <constraint firstItem="x60-UY-2lv" firstAttribute="trailing" secondItem="kAL-jv-TIF" secondAttribute="trailing" constant="16" id="Qgb-nr-H4c"/>
+                            <constraint firstItem="Rc2-DZ-rDD" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" id="R0M-8p-M9z"/>
+                            <constraint firstItem="Rc2-DZ-rDD" firstAttribute="top" secondItem="x60-UY-2lv" secondAttribute="top" id="RBL-x4-KV8"/>
+                            <constraint firstItem="kAL-jv-TIF" firstAttribute="leading" secondItem="lKj-Dg-c5D" secondAttribute="trailing" constant="16" id="ZYF-QP-AdG"/>
+                            <constraint firstItem="3id-gX-M9W" firstAttribute="top" secondItem="x60-UY-2lv" secondAttribute="top" constant="16" id="bw4-im-5DA"/>
+                            <constraint firstItem="Rc2-DZ-rDD" firstAttribute="trailing" secondItem="x60-UY-2lv" secondAttribute="trailing" id="cXY-mx-AT3"/>
+                            <constraint firstItem="3id-gX-M9W" firstAttribute="leading" secondItem="x60-UY-2lv" secondAttribute="leading" constant="16" id="mSO-nh-qJP"/>
+                            <constraint firstItem="x60-UY-2lv" firstAttribute="trailing" secondItem="Hdh-Sv-kXE" secondAttribute="trailing" constant="16" id="oUa-Pt-yIk"/>
+                            <constraint firstItem="kAL-jv-TIF" firstAttribute="top" secondItem="Hdh-Sv-kXE" secondAttribute="bottom" constant="8" id="opI-GF-cs7"/>
+                            <constraint firstItem="x60-UY-2lv" firstAttribute="bottom" secondItem="Rc2-DZ-rDD" secondAttribute="bottom" id="otg-c6-eR9"/>
+                            <constraint firstItem="lKj-Dg-c5D" firstAttribute="top" secondItem="J7Q-KG-tUe" secondAttribute="bottom" constant="8" id="xz7-CI-r8m"/>
+                            <constraint firstItem="x60-UY-2lv" firstAttribute="bottom" secondItem="kAL-jv-TIF" secondAttribute="bottom" constant="16" id="z6B-8E-O2O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x60-UY-2lv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="han-m0-wBI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="apc-dK-9de">
-                            <connections>
-                                <segue destination="6Bw-LP-YLc" kind="unwind" unwindAction="unwindToCollectionViewWithSegue:" id="oL5-Yk-tnd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="idLabel" destination="Hdh-Sv-kXE" id="tgu-oG-6PB"/>
                         <outlet property="mainImageView" destination="Rc2-DZ-rDD" id="YwR-xd-Dg7"/>
@@ -163,4 +172,7 @@
             <point key="canvasLocation" x="1391" y="29"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backIcon" width="22" height="21"/>
+    </resources>
 </document>

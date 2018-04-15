@@ -16,11 +16,16 @@ class PhotoDetailViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         self.setupPhotoDetails()
-        
+                
         // Swipe Gestures
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture(gesture:)))
         swipeLeft.direction = .left

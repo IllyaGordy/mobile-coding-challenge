@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
+import SVProgressHUD
 
 private let reuseIdentifier = "PhotoIdentified"
 fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
@@ -19,33 +21,30 @@ class PhotoCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UpsplashFeedController.pullFeed(success: { (success) in
-            self.collectionView?.reloadData()
-            
-        }) { (failedToPullFeed) in
-            print("FailedToPullFeed: \(failedToPullFeed)")
-        }
+        self.refresh()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    func refresh() {
+        
+        if HelperUtils.isInternetAvailable() == true {
+            UpsplashFeedController.pullFeed(success: { (success) in
+                self.collectionView?.reloadData()
+                
+            }) { (failedToPullFeed) in
+                print("FailedToPullFeed: \(failedToPullFeed)")
+            }
+        }else {
+            SVProgressHUD.showInfo(withStatus: "Internet Connection not Available")
+        }
+        
+        
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -63,8 +62,6 @@ class PhotoCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! GridPhotoCollectionViewCell
         
-        cell.backgroundColor = UIColor.blue
-        
         cell.titleLabel.textColor = UIColor.white
         cell.titleLabel.text = UpsplashFeedController.currentPhotos[indexPath.item].img_description
         
@@ -75,23 +72,21 @@ class PhotoCollectionViewController: UICollectionViewController {
             
         }else if UpsplashFeedController.currentPhotos[indexPath.row].img_url != nil {
             
-            if (UpsplashFeedController.currentPhotos[indexPath.row].img_url)! == "self" {
-                UpsplashFeedController.currentPhotos[indexPath.row].img_url = nil
-            }else {
-                UpsplashFeedController.pullImage(with: (UpsplashFeedController.currentPhotos[indexPath.row].img_url)!, success: { (returnedImage) in
-                    
-                    cell.imageView.image = returnedImage
-                    
-                    UpsplashFeedController.currentPhotos[indexPath.row].mainImage = returnedImage
-                    
-                }, failed: { (errorPullingImage) in
-                    print("errorPullingImage: \(errorPullingImage)")
-                })
-            }
+            cell.imageView.image = UIImage.init(named: "emptyState")
+            
+            UpsplashFeedController.pullImage(with: (UpsplashFeedController.currentPhotos[indexPath.row].img_url)!, success: { (returnedImage) in
+                
+                cell.imageView.image = returnedImage
+                
+                UpsplashFeedController.currentPhotos[indexPath.row].mainImage = returnedImage
+                
+            }, failed: { (errorPullingImage) in
+                print("errorPullingImage: \(errorPullingImage)")
+            })
             
         }else {
             print("Image URL is empty -> do nothing")
-            cell.imageView.image = nil
+            cell.imageView.image = UIImage.init(named: "emptyState")
         }
         
         return cell
@@ -101,12 +96,7 @@ class PhotoCollectionViewController: UICollectionViewController {
         
         if (indexPath.row == UpsplashFeedController.currentPhotos.count - 1) {
             
-            UpsplashFeedController.pullFeed(success: { (success) in
-                self.collectionView?.reloadData()
-                
-            }) { (failedToPullFeed) in
-                print("FailedToPullFeed: \(failedToPullFeed)")
-            }
+            self.refresh()
         }
         
     }
@@ -134,6 +124,46 @@ class PhotoCollectionViewController: UICollectionViewController {
                 let index = IndexPath(row: photoDetailVS.currentPhotoIndex!, section: 0)
                 self.collectionView?.scrollToItem(at: index, at: .centeredVertically, animated: true)
             }
+        }
+    }
+    
+    // MARK: DZNEmptyDataSet
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        
+        var titleString = "No Photos Available"
+        
+        if HelperUtils.isInternetAvailable() == false {
+            titleString = "There is no Internet Connection"
+        }
+        
+        return NSAttributedString(string: titleString, attributes: [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Medium", size: 30)!])
+        
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        var descriptionString = "Looked like there are no photos available at this time"
+        
+        if HelperUtils.isInternetAvailable() == false {
+            descriptionString = "Seems like you are not connected to the internet, please find some WIFI or turn off Airplane mode and try again."
+        }
+        
+        return NSAttributedString(string: descriptionString, attributes: [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Light", size: 18)!])
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        
+        let buttonString = "Refresh"
+        
+        return NSAttributedString(string: buttonString, attributes: [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue", size: 25)!])
+
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        
+        if HelperUtils.isInternetAvailable() == true {
+            self.refresh()
+        }else {
+            SVProgressHUD.showError(withStatus: "Still no Internet Connection Available")
         }
     }
 
