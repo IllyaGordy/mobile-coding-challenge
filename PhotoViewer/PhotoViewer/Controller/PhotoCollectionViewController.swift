@@ -14,7 +14,7 @@ fileprivate let itemsPerRow: CGFloat = 3
 
 class PhotoCollectionViewController: UICollectionViewController {
 
-    var photoToPass:Photo?
+    var photoIndexToPass:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +114,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     // Segue Prep
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        self.photoToPass = UpsplashFeedController.currentPhotos[indexPath.row]
+        self.photoIndexToPass = indexPath.row
         performSegue(withIdentifier: "showPhotoDetailSegue", sender: self)
     }
     
@@ -122,7 +122,17 @@ class PhotoCollectionViewController: UICollectionViewController {
         
         if segue.identifier == "showPhotoDetailSegue" {
             if let photoDetailVC = segue.destination as? PhotoDetailViewController {
-                photoDetailVC.currentPhoto = self.photoToPass //?.copy() as? Photo
+                photoDetailVC.currentPhotoIndex = self.photoIndexToPass
+            }
+        }
+    }
+    
+    @IBAction func unwindToCollectionView(segue: UIStoryboardSegue) {
+        
+        if segue.source is PhotoDetailViewController {
+            if let photoDetailVS = segue.source as? PhotoDetailViewController {
+                let index = IndexPath(row: photoDetailVS.currentPhotoIndex!, section: 0)
+                self.collectionView?.scrollToItem(at: index, at: .centeredVertically, animated: true)
             }
         }
     }

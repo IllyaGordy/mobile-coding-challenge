@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="528.79999999999995" y="29.23538230884558"/>
         </scene>
-        <!--Photo Detail View Controller-->
+        <!--Title-->
         <scene sceneID="VhH-hF-hdl">
             <objects>
                 <viewController id="idA-gC-ce7" customClass="PhotoDetailViewController" customModule="PhotoViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -144,7 +144,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x60-UY-2lv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nit-ce-tlb"/>
+                    <navigationItem key="navigationItem" title="Title" id="han-m0-wBI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="apc-dK-9de">
+                            <connections>
+                                <segue destination="6Bw-LP-YLc" kind="unwind" unwindAction="unwindToCollectionViewWithSegue:" id="oL5-Yk-tnd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="idLabel" destination="Hdh-Sv-kXE" id="tgu-oG-6PB"/>
                         <outlet property="mainImageView" destination="Rc2-DZ-rDD" id="YwR-xd-Dg7"/>
@@ -152,6 +158,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFQ-vN-Up2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6Bw-LP-YLc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1391" y="29"/>
         </scene>
