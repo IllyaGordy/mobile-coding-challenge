@@ -11,6 +11,7 @@
 		49073CBF2083C43300B81044 /* CustomPhotoSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49073CBE2083C43300B81044 /* CustomPhotoSegue.swift */; };
 		490C7CEE2083D51900AADB4C /* UnwindCustomPhotoSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C7CED2083D51900AADB4C /* UnwindCustomPhotoSegue.swift */; };
 		490C7CF02083DE4F00AADB4C /* HelperUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C7CEF2083DE4F00AADB4C /* HelperUtils.swift */; };
+		490C7CF22083E3B700AADB4C /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 490C7CF12083E3B700AADB4C /* readme.txt */; };
 		49E16C1F20796FE100E76C41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E16C1E20796FE100E76C41 /* AppDelegate.swift */; };
 		49E16C2420796FE100E76C41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E16C2220796FE100E76C41 /* Main.storyboard */; };
 		49E16C2620796FE100E76C41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E16C2520796FE100E76C41 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		49073CBE2083C43300B81044 /* CustomPhotoSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPhotoSegue.swift; sourceTree = "<group>"; };
 		490C7CED2083D51900AADB4C /* UnwindCustomPhotoSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindCustomPhotoSegue.swift; sourceTree = "<group>"; };
 		490C7CEF2083DE4F00AADB4C /* HelperUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUtils.swift; sourceTree = "<group>"; };
+		490C7CF12083E3B700AADB4C /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		49E16C1B20796FE100E76C41 /* PhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49E16C1E20796FE100E76C41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49E16C2320796FE100E76C41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				49E16C2A20796FE100E76C41 /* Info.plist */,
 				49E16C2520796FE100E76C41 /* Assets.xcassets */,
 				49E16C2720796FE100E76C41 /* LaunchScreen.storyboard */,
+				490C7CF12083E3B700AADB4C /* readme.txt */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				49E16C2920796FE100E76C41 /* LaunchScreen.storyboard in Resources */,
 				49E16C2620796FE100E76C41 /* Assets.xcassets in Resources */,
+				490C7CF22083E3B700AADB4C /* readme.txt in Resources */,
 				49E16C2420796FE100E76C41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
